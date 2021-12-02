@@ -1,0 +1,25 @@
+.user-input {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.note,
+.rows-number,
+.columns-number {
+    margin-right: 2rem;
+}
+
+.rows-number,
+.columns-number {
+    width: 10%;
+}
+
+.table {
+    border: 1px solid #ccc;
+    table-layout: fixed;
+    margin: auto;
+}
+
+td {
+    border: solid 1px #ccc;
+}

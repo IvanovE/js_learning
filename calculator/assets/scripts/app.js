@@ -14,7 +14,6 @@ function renderResult(operator, resultBeforeCalc, calcNubmer) {
   outputResult(currentResult, calcDescription) // from vendor file
 }
 
-//
 function renderLog(operation, prevResult, calcNumber, newResult) {
   const logEntry = {
     operation: operation,
@@ -26,39 +25,54 @@ function renderLog(operation, prevResult, calcNumber, newResult) {
   console.log(logEntries)
 }
 
-function add() {
+function calculateResult(calcType) {
   const enteredNumber = getUserNumberInput()
   const initialResult = currentResult
-  currentResult += enteredNumber
-  renderResult('+', initialResult, enteredNumber)
-  renderLog('ADD', initialResult, enteredNumber, currentResult)
+  let mathOperator
+  if (calcType === 'ADD') {
+    currentResult += enteredNumber
+    mathOperator = '+'
+  } else if (calcType === 'SUBTRACT') {
+    currentResult -= enteredNumber
+    mathOperator = '-'
+  } else if (calcType === 'DIVIDE') {
+    currentResult /= enteredNumber
+    mathOperator = '/'
+  } else if (calcType === 'MULTIPLY') {
+    currentResult *= enteredNumber
+    mathOperator = '*'
+  }
+  renderResult(mathOperator, initialResult, enteredNumber)
+  renderLog(calcType, initialResult, enteredNumber, currentResult)
 }
 
-function subtract() {
-  const enteredNumber = getUserNumberInput()
-  const initialResult = currentResult
-  currentResult -= enteredNumber
-  renderResult('-', initialResult, enteredNumber)
-  renderLog('SUBTRACT', initialResult, enteredNumber, currentResult)
-}
+// function add() {
+//   calculateResult('ADD')
+// }
+//
+// function subtract() {
+//   calculateResult('SUBTRACT')
+// }
+//
+// function divide() {
+//   calculateResult('DIVIDE')
+// }
+//
+// function multiply() {
+//   calculateResult('MULTIPLY')
+// }
+//
+// addBtn.addEventListener('click', add)
+// subtractBtn.addEventListener('click', subtract)
+// divideBtn.addEventListener('click', divide)
+// multiplyBtn.addEventListener('click', multiply)
 
-function divide() {
-  const enteredNumber = getUserNumberInput()
-  const initialResult = currentResult
-  currentResult /= enteredNumber
-  renderResult('/', initialResult, enteredNumber)
-  renderLog('DIVIDE', initialResult, enteredNumber, currentResult)
-}
-
-function multiply() {
-  const enteredNumber = getUserNumberInput()
-  const initialResult = currentResult
-  currentResult *= enteredNumber
-  renderResult('*', initialResult, enteredNumber)
-  renderLog('MULTIPLY', initialResult, enteredNumber, currentResult)
-}
+const add = calculateResult.bind(null, 'ADD')
+const subtract = calculateResult.bind(null, 'SUBTRACT')
+const divide = calculateResult.bind(null, 'DIVIDE')
+const multiply = calculateResult.bind(null, 'MULTIPLY')
 
 addBtn.addEventListener('click', add)
 subtractBtn.addEventListener('click', subtract)
-multiplyBtn.addEventListener('click', multiply)
 divideBtn.addEventListener('click', divide)
+multiplyBtn.addEventListener('click', multiply)

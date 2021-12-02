@@ -1,0 +1,55 @@
+.place-holder {
+    margin-top: 200px;
+}
+
+.counter-holder,
+.timer-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.counter-holder {
+    margin-bottom: 30px;
+}
+
+.timer-and-amount-text {
+    margin-right: 5px;
+}
+
+.playing-field {
+    margin: 0 auto 20px auto;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000000;
+    position: relative;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.btn {
+    background-color: #0C97E4;
+    color: #fff;
+    border: 0;
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.btn:hover {
+    background-color: #0986cc;
+}
+
+.target {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}

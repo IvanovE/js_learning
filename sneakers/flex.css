@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*flex-direction: column;*/
+}
+
+.box {
+  background-color: teal;
+  width: 200px;
+  height: 100px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.box:first-child {
+  font-size: 28px;
+}
+
+.box:last-child {
+  font-size: 40px;
+}
+
+p {
+  display: inline-block;
+  width: 33%;
+  vertical-align: middle;
+}
