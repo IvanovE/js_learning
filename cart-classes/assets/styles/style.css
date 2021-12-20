@@ -33,6 +33,7 @@ body {
     margin: 20px auto;
     padding: 10px;
     max-width: 200px;
+    border: 2px solid #ea2845;
 }
 
 .head {
@@ -42,21 +43,24 @@ body {
 }
 
 .btn {
-    padding: 10px;
-    background-color: #aec6f8;
-    color: #790fa3;
-    border: 0;
-    border-radius: 5px;
-    transition: 0.3s ease;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 14px 28px;
+    background-color: #ea2845;
+    color: #fff;
+    border: 2px solid #ea2845;
+    border-radius: 30px;
+    min-width: 230px;
+    transition: all .1s ease-in;
 }
 
 .btn:hover {
-    background-color: #0C97E4;
-    color: white;
+    background-color: white;
+    color: #ea2845;
 }
 
 .cart-item {
-    border: #1B1D1E solid 1px;
+    border: 2px solid #ea2845;
     text-align: left;
     padding: 5px;
     font-size: 18px;

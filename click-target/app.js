@@ -7,6 +7,8 @@ const timerField = document.querySelector('#timer')
 const colorList = ['#8B0000', '#32CD32', '#20B2AA', '#FF1493', '#FFFF00', '#00BFFF', '#8B008B', '#6A5ACD',
                    '#F4A460', '#2F4F4F', '#9932CC']
 
+const gameAreaSize = playField.getBoundingClientRect()
+
 let counter = 0
 let sec = 0
 let min = 0
@@ -53,8 +55,16 @@ const createColor = () => {
 }
 
 const changePosition = (target) => {
-  target.style.left = Math.random() * 200 + 'px'
-  target.style.top = Math.random() * 200 + 'px'
+  const squareSize = getRandom(10,80)
+  const squareTopMax = gameAreaSize.height - squareSize - 4 // Отнимаем 4 из-за бордеров
+  const squareLeftMax = gameAreaSize.width - squareSize - 4
+  target.style.height = target.style.width = squareSize + 'px'
+  target.style.top = getRandom(0, squareTopMax) + 'px';
+  target.style.left = getRandom(0, squareLeftMax) + 'px';
+}
+
+const getRandom = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 const changeTarget = target => {

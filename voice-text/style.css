@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #009578;
+}
+
+.wrapper {
+    width:  500px;
+    margin: 300px auto;
+}
+
+.textarea {
+    display: block;
+    width: 600px;
+    height: 300px;
+    resize: none;
+    background: #aec6f8;
+    font-size: 20px;
+}
+
+.convert {
+    display: block;
+    width: 600px;
+    padding: 1rem;
+    border-radius: 5px;
+    background: #084f88;
+    color: white;
+}
+
+.convert:hover {
+    background: #00329e;
+}
