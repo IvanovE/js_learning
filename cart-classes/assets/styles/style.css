@@ -4,7 +4,10 @@
 }
 
 body {
-    background-color: #009578;
+    background: #009FFF;
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);
+    background: linear-gradient(to right, #ec2F4B, #009FFF);
+
 }
 
 .container {
