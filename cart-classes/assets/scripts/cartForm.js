@@ -8,20 +8,21 @@ export default class CartForm {
     this.inputText = document.createElement('input')
     this.inputNum = document.createElement('input')
     this.btn = document.createElement('button')
+    this.addPurchase = this.addPurchaseBtn.bind(this)
   }
 
   addPurchaseBtn (event) {
     event.preventDefault()
     const inputText = document.querySelector('#input-text')
     const inputNum = document.querySelector('#input-num')
-    if (!inputText.value || !inputNum.value) {
-      alert('Enter data!')
+    if (!inputText.value || !inputNum.value || +inputNum.value < 0) {
+      alert('Enter valid data!')
     } else {
       const objData = {name: inputText.value, price: +inputNum.value}
       this.createPurchase(objData)
+      this.inputText.value = ''
+      this.inputNum.value = ''
     }
-    this.inputText.value = ''
-    this.inputNum.value = ''
   }
 
   createTotalPrice (totalPrice) {
@@ -46,7 +47,7 @@ export default class CartForm {
     this.inputNum.placeholder = 'А сколько стоит?'
     this.btn.className = 'btn'
     this.btn.textContent = 'Добавить в корзину'
-    this.btn.addEventListener('click', this.addPurchaseBtn.bind(this))
+    this.btn.addEventListener('click', this.addPurchase)
     this.createTotalPrice(this.totalPrice)
     this.cartEnter.append(this.headTotal, this.inputText, this.inputNum, this.btn)
     return this.cartEnter
