@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>Share Place</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="map" id="map">
+            <div class="place-holder">You haven't selected any place!</div>
+        </div>
+
+        <div class="share-place">
+            <input type="text" class="select-place" placeholder="Select a place to get a sharable link" readonly
+                   id="share-place-link">
+            <button class="btn disabled" id="share-place" disabled>Share Place</button>
+        </div>
+
+        <div class="share-place">
+            <h2 class="address-title">Address</h2>
+            <form id="address-form" class="find-form">
+                <input id="address" class="address"></input>
+                <button class="btn" id="find-place">Find place</button>
+            </form>
+            <button class="btn" id="get-current-location">Get current location</button>
+        </div>
+    </div>
+
+
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=API_KEY">
+    </script>
+    <script type="module" src="assets/scripts/run.js" defer></script>
+</body>
+</html>

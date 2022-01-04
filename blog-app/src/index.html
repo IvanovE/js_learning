@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>001001</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <h1 class="header__title">БЛОГ 001001</h1>
+        <h2 class="header__subtitle">Создавайте статьи и добавляйте их в избранное</h2>
+        <button id="get-start" class="btn">ПРИСТУПИТЬ</button>
+    </header>
+
+    <div class="form-container">
+
+        <ul class="tabs" id="navigation">
+            <li><a class="tab" href="" data-name="posts">Посты</a></li>
+            <li><a class="tab active" href="" data-name="create">Создать</a></li>
+            <li><a class="tab" href="" data-name="favourite">Избранное</a></li>
+        </ul>
+
+        <form class="create" id="create">
+            <h1 class="form-head">Создать новый пост</h1>
+            <div class="form-control">
+                <label>Название</label>
+                <input class="form-title" placeholder="Введите название" name="title" type="text">
+            </div>
+            <div class="form-control">
+                <label>Текст</label>
+                <textarea class="form-text" placeholder="Введите текст поста" name="fulltext"></textarea>
+            </div>
+            <div class="form-control">
+                <label>Тип</label>
+                <select class="form-select" name="type">
+                    <option value="note">Заметка</option>
+                    <option value="news">Новость</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Создать</button>
+        </form>
+
+        <div class="posts hide" id="posts">
+            <div class="post">
+                <div class="post-head">
+                    <p class="post-head__title">Название</p>
+                    <ul class="tags">
+                        <li class="tag tag-blue">Новость</li>
+                    </ul>
+                </div>
+                <div class="post-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, unde!</div>
+                <div class="post-footer">03.01.21</div>
+            </div>
+        </div>
+        <div class="favourite hide" id="favourite"></div>
+    </div>
+</body>
+</html>
