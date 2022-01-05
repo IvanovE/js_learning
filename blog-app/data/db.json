@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "JavaScript",
+      "fulltext": "New Version!",
+      "type": "news",
+      "date": "25.12.2021",
+      "favourite": true,
+      "liked": true
+    },
+    {
+      "type": "note",
+      "date": "05.01.2022",
+      "favourite": false,
+      "title": "Buy milk",
+      "fulltext": "Don't forget!",
+      "id": 2,
+      "liked": true
+    }
+  ]
+}
