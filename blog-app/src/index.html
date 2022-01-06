@@ -23,8 +23,6 @@
             <li class="tab" data-name="favourite"><a href="#">Избранное</a></li>
         </ul>
 
-        <div class="lds-dual-ring hide" id="loader"></div>
-
         <form class="create hide" id="create">
             <h1 class="form-head">Создать новый пост</h1>
             <div class="form-control">
@@ -47,6 +45,20 @@
 
         <div class="posts hide" id="posts"></div>
         <div class="favourite hide" id="favourite"></div>
+    </div>
+
+
+    <div class="lds-dual-ring hide" id="loader"></div>
+    <div id="backdrop" class="backdrop hide"></div>
+    <div class="modal hide" id="modal">
+        <h2 class="modal__title">Вы уверены?</h2>
+        <p class="modal__content">
+            Вы уверены, что хотите удалить этот пост? Действие необратимо.
+        </p>
+        <div class="modal__actions">
+            <button id="modal-delete-cancel-btn" class="modal-btn btn--passive">Нет (Отмена)</button>
+            <button id="modal-delete-confirm-btn" class="modal-btn btn--danger">Да</button>
+        </div>
     </div>
 </body>
 </html>

@@ -41,6 +41,24 @@ class ApiService {
     })
     return useRequest(request)
   }
+
+  async deletePost(id) {
+    const request = new Request(`${this.url}/posts/${id}`, {
+      method: 'DELETE'
+    })
+    return useRequest(request)
+  }
+
+  async updatePost(id, updatedPost) {
+    const request = new Request(`${this.url}/posts/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(updatedPost),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    return useRequest(request)
+  }
 }
 
 async function useRequest(request) {

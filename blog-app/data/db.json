@@ -1,22 +1,36 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "JavaScript",
-      "fulltext": "New Version!",
-      "type": "news",
-      "date": "25.12.2021",
+      "type": "note",
+      "date": "06.01.2022",
       "favourite": true,
-      "liked": true
+      "title": "Купить холодильник",
+      "fulltext": "Нужно взять до 20 января",
+      "id": 1
+    },
+    {
+      "type": "news",
+      "date": "06.01.2022",
+      "favourite": false,
+      "title": "Казахстан",
+      "fulltext": "В Казахстан прибыли Российские миротворцы",
+      "id": 2
+    },
+    {
+      "type": "news",
+      "date": "06.01.2022",
+      "favourite": true,
+      "title": "JS",
+      "fulltext": "Скоро начну курс по Excel",
+      "id": 3
     },
     {
       "type": "note",
-      "date": "05.01.2022",
+      "date": "06.01.2022",
       "favourite": false,
-      "title": "Buy milk",
-      "fulltext": "Don't forget!",
-      "id": 2,
-      "liked": true
+      "title": "Коврики",
+      "fulltext": "Купить коврики в машину",
+      "id": 4
     }
   ]
 }

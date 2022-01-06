@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
     "server": "json-server --watch data/db.json",
-    "startserver": "concurrently \"npm run start\" \"npm run server\""
+    "startAll": "concurrently \"npm run start\" \"npm run server\""
   },
   "author": "Evgeny Ivanov",
   "license": "ISC",

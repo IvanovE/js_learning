@@ -8,6 +8,10 @@ body {
   font-family: sans-serif;
 }
 
+li {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -170,6 +174,7 @@ a {
   font-weight: 300;
   color: #424242;
   margin-bottom: 25px;
+  box-shadow: 0 1px 3px 1px rgb(0 0 0 / 10%);
 }
 
 .post-head {
@@ -188,6 +193,8 @@ a {
 }
 
 .post-head__title {
+  padding: 2px 8px;
+  flex-grow: 0.8;
   font-size: 25px;
   font-weight: 500;
 }
@@ -265,7 +272,7 @@ a {
 /* LOADER */
 
 .lds-dual-ring {
-  margin: 0 250px;
+  margin: 0 auto;
   width: 80px;
   height: 80px;
 }
@@ -287,4 +294,75 @@ a {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* MODAL */
+
+.modal-btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.btn--danger {
+  background-color: #48a219;
+  color: #fff;
+  border: 2px solid #48a219;
+}
+
+.btn--danger:hover {
+  color: #48a219;
+  background-color: #fff;
+}
+
+.btn--passive {
+  background-color: #ea2845;
+  color: #fff;
+  border: 2px solid #ea2845;
+}
+
+.btn--passive:hover {
+  background-color: #fff;
+  color: #ea2845;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+  width: 30%;
+  top: 30vh;
+  left: 35%;
+}
+
+.modal .modal__title {
+  margin: 0;
+  padding: 1rem;
+  background: #ea2845;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__content {
+  padding: 1rem;
+}
+
+.modal .modal__actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
 }

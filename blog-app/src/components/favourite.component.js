@@ -13,7 +13,7 @@ export class FavouriteComponent extends Component {
     const data = await apiService.getPosts()
     const favouritePosts = data.filter(post => post.favourite)
     const html = favouritePosts.map(post => PostService.createTemplate(post)).join(' ')
-    setTimeout(() => {
+    setTimeout(() => { // Зачем это? Немного посмотреть на loader :)
       this.loader.hide()
       this.$el.insertAdjacentHTML('afterbegin', html)
       this.$el.addEventListener('click', PostService.heartHandler)
