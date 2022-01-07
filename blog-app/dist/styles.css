@@ -71,6 +71,8 @@ a {
 }
 
 .form-container {
+  padding: 6px;
+  overflow: hidden;
   width: 600px;
   margin: 30px auto;
   display: block;
@@ -365,4 +367,29 @@ a {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.75);
+}
+
+/* NOTIFICATION */
+
+.notification {
+  padding: 8px;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 80%);
+  box-shadow: 0 1px 10px 4px rgb(234 40 69 / 10%);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.notification-hide,
+.notification-show {
+  transition: right 0.1s ease-in-out;
+}
+
+.notification-hide:defined {
+  right: -700px;
+}
+
+.notification-show:defined {
+  right: 0;
 }

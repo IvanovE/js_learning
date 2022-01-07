@@ -1,5 +1,7 @@
 import { apiService } from "./api.service"
 import { ModalComponent } from "../components/modal.component"
+import { NotificationComponent } from "../components/notification.component"
+import { memento } from "./memento.service"
 
 const POST_CONFIG = {
   note: {
@@ -19,6 +21,10 @@ export class PostService {
     const deleteIcon = '<i class="far fa-trash-alt" data-action="delete"></i>'
     const editIcon = '<i class="far fa-edit" data-action="edit"></i>'
     const heartIcon = post.favourite ? addToFavoriteEl : removeFromFavoriteEl
+    memento.add(post.id, {
+      'title': post.title,
+      'fulltext': post.fulltext
+    })
 
     return `
       <div class="post" data-id="${post.id}">
@@ -47,7 +53,21 @@ export class PostService {
       if (shouldSave) {
         target.setAttribute('data-state', 'full')
         target.className = 'fas fa-heart color-red'
+        const notification = new NotificationComponent('notification', {
+          message: 'Пост добавлен в избранное!'
+        })
+        notification.show()
+        setTimeout(() => {
+          notification.hide()
+        }, 2000)
       } else {
+        const notification = new NotificationComponent('notification', {
+          message: 'Пост удален из избранного!'
+        })
+        notification.show()
+        setTimeout(() => {
+          notification.hide()
+        }, 2000)
         target.setAttribute('data-state', 'empty')
         target.className = 'far fa-heart'
       }
@@ -87,7 +107,16 @@ export class PostService {
   static async editHandler(event) {
     const {target} = event
     if (target.dataset.action === 'edit') {
-      const allPosts = [...document.querySelectorAll('.post')]
+
+      const notification = new NotificationComponent('notification', {
+        message: 'Нажмите ESCAPE, чтобы выйти из режима правки без сохранения изменений. ENTER - выйти с сохранением'
+      })
+      notification.show()
+
+      setTimeout(() => {
+        notification.hide()
+      }, 4000)
+
       const postId = target.closest('.post').dataset.id
       const postEl = target.closest('.post')
       const postTitle = postEl.querySelector('.js-post-title')
@@ -97,6 +126,8 @@ export class PostService {
       setTimeout(() => {
         postTitle.focus()
       }, 0)
+
+      hideAllEdits()
 
       postTitle.contentEditable = true
       postFulltext.contentEditable = true
@@ -109,6 +140,12 @@ export class PostService {
           postFulltext.contentEditable = false
           postTitle.style.backgroundColor = ''
           postFulltext.style.backgroundColor = ''
+
+          const mementoItem = memento.get(postId)
+
+          postTitle.textContent = mementoItem.title
+          postFulltext.textContent = mementoItem.fulltext
+
           this.removeEventListener('keydown', dismissEdit)
           this.removeEventListener('keypress', confirmEdit)
         }
@@ -116,10 +153,25 @@ export class PostService {
 
       const confirmEdit = async function (e) {
         if (e.key === 'Enter') {
+
+          const notification = new NotificationComponent('notification', {
+            message: 'Изменения сохранены!'
+          })
+          notification.show()
+          setTimeout(() => {
+            notification.hide()
+          }, 4000)
+
           postTitle.contentEditable = false
           postFulltext.contentEditable = false
           postTitle.style.backgroundColor = ''
           postFulltext.style.backgroundColor = ''
+
+          memento.add(postId, {
+            title: postTitle,
+            fulltext: postFulltext
+          })
+
           const updatedPost = {
             title: postTitle.textContent,
             date: new Date().toLocaleDateString(),
@@ -135,5 +187,23 @@ export class PostService {
       document.addEventListener('keypress', confirmEdit)
       document.addEventListener('keydown', dismissEdit)
     }
+  }
+}
+
+
+function hideAllEdits () {
+  const allPosts = [...document.querySelectorAll('.post')]
+  for (const post of allPosts) {
+    const postTitle = post.querySelector('.js-post-title')
+    const postFulltext = post.querySelector('.js-post-fulltext')
+    postTitle.contentEditable = false
+    postFulltext.contentEditable = false
+    postTitle.style.backgroundColor = ''
+    postFulltext.style.backgroundColor = ''
+
+    const mementoItem = memento.get(post.dataset.id)
+
+    postTitle.textContent = mementoItem.title
+    postFulltext.textContent = mementoItem.fulltext
   }
 }

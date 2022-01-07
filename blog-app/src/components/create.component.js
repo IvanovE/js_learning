@@ -2,6 +2,7 @@ import { Component } from '../core/component'
 import { Form } from "../core/form"
 import { Validators } from "../core/validators"
 import { apiService } from "../services/api.service"
+import {NotificationComponent} from "./notification.component";
 
 
 export class CreateComponent extends Component {
@@ -29,5 +30,12 @@ async function submitHandler(event) {
     }
     this.form.clearInputs()
     await apiService.createPost(formData)
+    const notification = new NotificationComponent('notification', {
+      message: 'Пост создан!'
+    })
+    notification.show()
+    setTimeout(() => {
+      notification.hide()
+    }, 2000)
   }
 }

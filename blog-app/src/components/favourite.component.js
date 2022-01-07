@@ -17,11 +17,15 @@ export class FavouriteComponent extends Component {
       this.loader.hide()
       this.$el.insertAdjacentHTML('afterbegin', html)
       this.$el.addEventListener('click', PostService.heartHandler)
+      this.$el.addEventListener('click', PostService.deleteHandler)
+      this.$el.addEventListener('click', PostService.editHandler)
     }, 500)
   }
 
   onHide() {
     this.$el.innerHTML = ''
     this.$el.removeEventListener('click', PostService.heartHandler)
+    this.$el.addEventListener('click', PostService.deleteHandler)
+    this.$el.addEventListener('click', PostService.editHandler)
   }
 }

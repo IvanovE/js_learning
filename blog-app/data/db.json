@@ -1,36 +1,36 @@
 {
   "posts": [
     {
-      "type": "note",
-      "date": "06.01.2022",
-      "favourite": true,
-      "title": "Купить холодильник",
-      "fulltext": "Нужно взять до 20 января",
-      "id": 1
-    },
-    {
       "type": "news",
-      "date": "06.01.2022",
+      "date": "07.01.2022",
       "favourite": false,
-      "title": "Казахстан",
-      "fulltext": "В Казахстан прибыли Российские миротворцы",
-      "id": 2
-    },
-    {
-      "type": "news",
-      "date": "06.01.2022",
-      "favourite": true,
       "title": "JS",
-      "fulltext": "Скоро начну курс по Excel",
+      "fulltext": "Скоро",
       "id": 3
     },
     {
       "type": "note",
-      "date": "06.01.2022",
-      "favourite": false,
+      "date": "07.01.2022",
+      "favourite": true,
       "title": "Коврики",
-      "fulltext": "Купить коврики в машину",
+      "fulltext": "Купить sdfsdfsdsdfdsfdfsdfsdsdfsdds",
       "id": 4
+    },
+    {
+      "type": "note",
+      "date": "07.01.2022",
+      "favourite": true,
+      "title": "Холодильник",
+      "fulltext": "Купить холодильник до 20 января",
+      "id": 5
+    },
+    {
+      "type": "news",
+      "date": "07.01.2022",
+      "favourite": false,
+      "title": "Казахстан ",
+      "fulltext": "В Казахстан прибыли Российские миротворцы",
+      "id": 6
     }
   ]
 }
