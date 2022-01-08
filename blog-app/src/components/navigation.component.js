@@ -9,6 +9,9 @@ export class NavigationComponent extends Component {
 
   init() {
     this.$el.addEventListener('click', tabClickHandler.bind(this))
+    if (!localStorage.getItem('activeTab')) {
+      localStorage.setItem('activeTab', 'create')
+    }
 
     const activeTabName = localStorage.getItem('activeTab')
     const activeTab = [...this.$el.children].find(el => el.dataset.name === activeTabName)
